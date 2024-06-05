@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+
+        }
+
+        html {
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            min-width: 361px;
+            font-family: Arial, sans-serif;
+            background-color: #1E1E1E;
+            color: #FFFFFF;
+            margin: 0 auto;
+            font-size: 16px;
+            max-width: 2440px;
+        }
+
+        #header {
+            display: flex;
+            flex-direction: column;
+            /* position: fixed;
+            left: 0;
+            top: 0; */
+            height: 100%;
+            width: 75px;
+            min-width: 75px;
+            background-color: #1E1E1E;
+            padding: 5px;
+            box-sizing: border-box;
+            transition: width .1s ease;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        nav,
+        #home-btn {
+            z-index: 3;
+        }
+
+        /* width */
+        #content::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        /* Track */
+        #content::-webkit-scrollbar-track {
+            border-radius: 0px;
+        }
+
+        /* Handle */
+        #content::-webkit-scrollbar-thumb {
+            background: #8585858f;
+            border-radius: 10px;
+        }
+
+        #header h1 {
+            opacity: 0;
+            font-size: 24px;
+            color: #A6A6A6;
+            transition: opacity .2s ease;
+        }
+
+        #header span,
+        #header .menu-chev {
+            opacity: 0;
+            transition: .2s ease;
+        }
+
+        #header .menu-chev {
+            min-width: 15px;
+        }
+
+        #home-btn {
+            padding: 15px 0;
+            cursor: pointer;
+        }
+
+        nav {
+            height: 100%;
+            background: #2b2d2e;
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+
+        .nav-btn {
+            cursor: pointer;
+        }
+
+        #header .nav-btn:hover .menu-chev {
+            margin-left: 5px;
+            opacity: 1;
+        }
+
+        #header:hover span,
+        #header:hover h1,
+        #header:hover .bg {
+            opacity: 1;
+        }
+
+        .bg {
+            opacity: 0;
+            z-index: 1;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.274);
+            transition: opacity .2s ease;
+            pointer-events: none;
+        }
+
+        #header:hover {
+            width: 200px;
+        }
+
+        .active path {
+            stroke: #6B8E23;
+        }
+
+        .active .hover-fill {
+            fill: #6B8E23;
+        }
+
+        .active:hover .menu-chev {
+            opacity: 0 !important;
+        }
+
+        #header svg {
+            min-width: 30px;
+
+        }
+
+        #header .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            width: 24px;
+            height: 24px;
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+
+        .home svg,
+        .home path,
+        .home text {
+            overflow: visible;
+            transition: .1s ease;
+        }
+
+        .home:hover text,
+        #header:hover .home-active text {
+            fill: #A6A6A6;
+        }
+
+        .home:hover #top-left,
+        #header:hover .home-active #top-left {
+            transform: translate(-30px, -2px);
+        }
+
+        .home:hover #top-right,
+        #header:hover .home-active #top-right {
+            transform: translate(30px, -2px);
+        }
+
+        .home:hover #bottom-left,
+        #header:hover .home-active #bottom-left {
+            transform: translate(-30px, 2px);
+        }
+
+        .home:hover #bottom-right,
+        #header:hover .home-active #bottom-right {
+            transform: translate(30px, 2px);
+        }
+
+        #header nav .nav-btn {
+            display: flex;
+            margin-top: 20px;
+            align-items: center;
+            color: #A6A6A6;
+            text-decoration: none;
+            margin-bottom: 10px;
+            margin-left: 3px;
+        }
+
+        text {
+            fill: transparent;
+            font-size: 13px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            pointer-events: none;
+            /* Prevent text from being part of the hover interaction */
+        }
+
+        #content {
+            margin: 5px;
+            margin-left: 0;
+            padding: 20px;
+            padding-right: 15px;
+            background: linear-gradient(44deg, #2b2d2e, #2B2B2B);
+            overflow: hidden;
+            overflow-y: scroll;
+            border-radius: 5px;
+            width: 100%;
+            /* margin: 5px;
+            margin-left: 75px;
+            padding: 20px;
+            background-color: #2B2B2B;
+            overflow: hidden;
+            overflow-y: scroll;
+            border-radius: 5px; */
+            /* scrollbar-width: 5px;
+            scrollbar-color: #6B8E23 transparent; */
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+        }
+
+        .projects {
+            display: grid;
+            flex-wrap: wrap;
+            grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr));
+            column-gap: 20px;
+            row-gap: 20px;
+        }
+
+        #projects {
+            max-width: 1100px;
+            margin: auto auto 40px auto;
+        }
+
+        .extension-marker {
+            position: absolute;
+            top: 3%;
+            right: -9%;
+            transform: rotate(29deg);
+            padding: 5px 3px 4px 4px;
+            border-radius: 12px;
+            opacity: .2;
+            z-index: 0;
+        }
+
+        .project {
+            background-color: #1E1E1E;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            transition: .2s ease;
+        }
+
+        .project img {
+            border-radius: 5px;
+        }
+
+        .project:hover {
+            /* box-shadow: inset 0 0 134px 0px #0d1106; */
+            /* outline: 2px solid #6B8E23; */
+            background: rgb(54, 54, 54);
+            box-shadow: 0 0 10px 0px #00000017;
+        }
+
+        .project h3 {
+            display: -webkit-box;
+            font-size: 18px;
+            color: #C0C0C0;
+            margin: 0;
+            /* margin-bottom: 5px; */
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .project p {
+            font-size: 16px;
+            color: #A6A6A6;
+            margin: 0;
+            /* margin-top: 5px; */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .project a {
+            color: #6B8E23;
+            text-decoration: none;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #1e1e1e;
+            color: #FFFFFF;
+            font-size: 16px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        .contact-form input {
+            max-width: 300px;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #6B8E23;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        .section {
+            display: none;
+            position: relative;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .project-content-outer {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+        }
+
+        .project-content-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-left: 10px;
+            padding: 7px 0;
+        }
+
+        .tools {
+            align-items: center;
+            width: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .tools path {
+            stroke: transparent;
+        }
+
+        @media (max-width: 768px) {
+            /* #header {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 10px;
+            } */
+
+            #content {
+                margin-left: 0;
+            }
+
+            .project-content-outer {
+                flex-direction: column;
+            }
+
+            .project-content-inner {
+                position: absolute;
+                bottom: 0;
+                background: #1e1e1ef0;
+                margin-left: 0;
+                left: 0;
+                right: 0;
+                margin: 10px;
+                border-radius: 5px;
+                padding: 15px;
+                row-gap: 5px;
+                overflow: hidden;
+            }
+
+            .project {
+                padding: 7px;
+            }
+
+            .project-img {
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 16/9;
+            }
+
+            .project p {
+                -webkit-line-clamp: 2;
+            }
+
+            .project h3 {
+                -webkit-line-clamp: 2;
+            }
+        }
+
+        .show-mob {
+            display: none;
+        }
+
+        @media (max-width: 641px) {
+            .hide-mob {
+                display: none !important;
+            }
+
+            .show-mob {
+                display: block !important;
+            }
+
+            body {
+                flex-direction: column-reverse;
+            }
+#header:hover .bg {
+    opacity: 0;
+}
+            #header {
+                flex-direction: row-reverse;
+                width: 100%;
+                height: 80px;
+                min-height: 80px;
+            }
+
+            #header span {
+                opacity: 1 !important;
+                font-size: 10pt;
+            }
+
+            .menu-chev {
+                display: none;
+            }
+
+            #header:hover {
+                width: 100%;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                background: transparent;
+                padding: 0;
+                /* column-gap: 20px; */
+                width: 100%;
+            }
+
+            .nav-btn {
+                flex-direction: column;
+            }
+
+            #header nav .nav-btn {
+                padding: 15px 0;
+                margin: 0;
+                /* height: 100%; */
+                width: 25%;
+            }
+
+            #home-btn {
+                width: 25%;
+                padding: 15px;
+            }
+
+            #header .show-mob {
+                display: flex !important;
+                flex-direction: column;
+                align-items: center;
+                color: #A6A6A6;
+            }
+
+            #content {
+                height: 100%;
+                width: auto;
+                margin: 5px;
+            }
+
+        }
+
+        .home-active path {
+            stroke: #6B8E23;
+        }
+
+        .about-contact {
+            /* display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            column-gap: 20px;
+            row-gap: 20px;
+        }
+
+        .about-contact .section {
+            max-width: 730px;
+            width: 100%;
+        }
+
+        #project-modal {
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div class="home home-active" id="home-btn">
+            <svg class="hide-mob" width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                fill="#000000">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <g id="wrapper">
+                        <path id="top-left" fill="none" stroke="#949494" stroke-width="2"
+                            d="M9,1 L9,9 L1,9 L1,1 L9,1 Z"></path>
+                        <path id="top-right" fill="none" stroke="#949494" stroke-width="2"
+                            d="M23,1 L23,9 L15,9 L15,1 L23,1 Z"></path>
+                        <path id="bottom-left" fill="none" stroke="#949494" stroke-width="2"
+                            d="M9,15 L9,23 L1,23 L1,15 L9,15 Z"></path>
+                        <path id="bottom-right" fill="none" stroke="#949494" stroke-width="2"
+                            d="M23,15 L23,23 L15,23 L15,15 L23,15 Z"></path>
+                        <text x="12" y="12">Home</text>
+                    </g>
+                </g>
+            </svg>
+            <div class="show-mob">
+                <svg class="" width="30px" height="30px" viewBox="0 -3 24 30" xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <g id="wrapper">
+                            <path fill="none" stroke="#949494" stroke-width="2" d="M9,1 L9,9 L1,9 L1,1 L9,1 Z"></path>
+                            <path fill="none" stroke="#949494" stroke-width="2" d="M23,1 L23,9 L15,9 L15,1 L23,1 Z">
+                            </path>
+                            <path fill="none" stroke="#949494" stroke-width="2" d="M9,15 L9,23 L1,23 L1,15 L9,15 Z">
+                            </path>
+                            <path fill="none" stroke="#949494" stroke-width="2"
+                                d="M23,15 L23,23 L15,23 L15,15 L23,15 Z"></path>
+                        </g>
+                    </g>
+                </svg>
+                <span>Home</span>
+            </div>
+        </div>
+        <nav>
+            <a class="nav-btn" data-target="projects">
+                <svg width="30px" height="30px" viewBox="0 0 960 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path class="hover-fill"
+                            d="M303.58 871.32C276.758 868.956 249.754 862.319 224.204 853.681C148.738 827.95 108.186 772.76 99.7304 694.747C93.7294 639.284 90.8199 583.457 87.4557 527.63C84.0915 472.258 80 416.886 80 361.513C80 314.415 85.6372 267.317 104.458 223.128C125.734 173.393 162.558 139.842 212.566 120.385C252.572 104.837 294.67 99.745 336.858 94.8351C417.78 85.5609 498.884 82.1968 580.169 87.5612C644.088 91.7437 707.644 99.2904 766.744 125.931C806.386 143.843 834.482 173.666 848.484 215.854C864.123 262.771 869.942 311.233 873.943 360.149C880.034 435.434 881.671 510.809 878.216 586.276C875.852 636.738 867.669 686.11 847.575 732.48C816.115 805.128 764.471 855.5 683.64 868.593C655.454 873.139 626.631 874.685 598.081 875.412C555.711 876.503 513.25 875.685 470.789 875.685L303.58 871.32ZM493.247 813.129C552.71 810.493 605.628 808.674 658.545 805.492C700.097 803.037 734.375 785.307 760.47 752.211C796.294 706.749 808.023 653.013 811.478 597.459C817.115 506.718 814.297 416.067 804.204 325.689C800.567 293.048 795.567 260.952 777.018 232.584C772.108 225.037 768.199 216.763 763.653 208.944C751.832 188.668 736.466 170.574 713.645 164.391C663.091 150.571 610.992 143.843 558.711 143.934C500.702 144.025 442.511 145.298 384.775 150.116C341.223 153.753 297.852 162.209 255.118 171.665C202.11 183.394 171.105 219.491 157.558 270.954C143.464 324.598 143.555 379.425 146.829 434.343C150.011 486.806 154.193 539.268 158.103 591.731C160.649 625.009 162.377 658.378 166.559 691.474C173.105 742.118 200.019 777.76 250.118 792.217C274.03 799.127 298.852 805.219 323.493 806.765C382.138 810.493 440.875 811.311 493.247 813.129Z"
+                            fill="#949494"></path>
+                        <path
+                            d="M493.247 813.13C440.875 811.312 382.139 810.493 323.493 806.766C298.762 805.22 274.031 799.037 250.118 792.218C200.019 777.761 173.106 742.119 166.559 691.475C162.286 658.47 160.558 625.01 158.103 591.732C154.103 539.269 150.011 486.897 146.829 434.344C143.556 379.517 143.465 324.69 157.558 270.954C171.106 219.583 202.11 183.395 255.119 171.666C297.853 162.21 341.223 153.754 384.775 150.117C442.512 145.207 500.703 144.025 558.712 143.934C611.084 143.844 663.092 150.663 713.645 164.392C736.467 170.666 751.833 188.669 763.653 208.945C768.199 216.764 772.109 225.038 777.019 232.585C795.567 260.862 800.568 293.049 804.205 325.69C814.297 416.068 817.116 506.719 811.479 597.46C808.024 653.014 796.294 706.75 760.471 752.212C734.376 785.308 700.188 803.038 658.546 805.493C605.628 808.584 552.711 810.403 493.247 813.13ZM384.412 652.832C387.321 658.015 389.776 666.107 395.141 671.017C407.87 682.837 427.327 677.018 435.056 659.197C440.784 645.922 445.148 632.011 449.24 618.1C480.881 510.265 512.341 402.339 543.891 294.413C549.074 276.683 541.073 259.953 524.797 254.952C508.886 250.042 492.247 259.953 487.246 277.592C484.973 285.593 483.336 293.776 481.063 301.868C452.877 402.793 424.691 503.718 396.595 604.734C392.413 619.736 388.958 634.92 384.412 652.832ZM249.209 460.984C288.397 429.616 325.311 399.884 362.408 370.334C374.774 360.514 378.865 348.694 372.955 337.328C367.045 325.872 353.134 321.144 338.95 327.054C330.04 330.782 321.129 335.601 313.582 341.602C274.758 372.607 236.298 403.975 197.837 435.526C188.199 443.436 183.289 454.71 186.653 466.621C189.472 476.805 194.109 487.534 200.928 495.353C232.661 531.995 273.303 557.727 313.31 584.003C329.494 594.641 350.497 584.913 355.225 567.092C358.862 553.18 353.589 542.088 342.587 533.723C325.311 520.539 307.581 507.81 290.397 494.535C276.94 484.079 264.029 473.077 249.209 460.984ZM703.916 460.439C699.825 463.985 697.097 466.803 693.915 469.167C656.818 496.99 619.63 524.721 582.443 552.544C567.44 563.818 563.531 580.003 572.532 593.278C581.897 606.916 599.809 609.826 614.72 597.915C661.364 560.454 707.644 522.539 753.288 483.897C771.472 468.531 770.108 449.982 751.56 434.889C731.011 418.159 710.19 401.793 689.187 385.7C672.184 372.698 654.727 360.332 637.36 347.785C633.542 345.057 629.541 342.42 625.359 340.42C612.356 334.419 598.627 338.238 591.808 349.33C585.261 360.059 587.534 373.88 598.536 382.426C613.175 393.792 628.541 404.066 643.361 415.159C663.455 429.888 683.277 444.982 703.916 460.439Z"
+                            fill="none"></path>
+                        <path class="hover-fill"
+                            d="M384.414 652.83C388.96 634.827 392.415 619.643 396.598 604.732C424.693 503.807 452.97 402.882 481.066 301.866C483.339 293.865 484.975 285.591 487.248 277.589C492.249 259.95 508.888 250.04 524.8 254.95C541.075 259.95 549.076 276.68 543.894 294.41C512.343 402.336 480.884 510.262 449.242 618.097C445.151 632.009 440.787 645.92 435.058 659.195C427.421 677.016 407.872 682.744 395.143 671.015C389.869 666.105 387.415 658.104 384.414 652.83Z"
+                            fill="#949494"></path>
+                        <path class="hover-fill"
+                            d="M249.212 460.985C263.941 473.077 276.943 484.079 290.309 494.444C307.494 507.719 325.224 520.448 342.499 533.632C353.501 541.997 358.865 553.181 355.137 567.001C350.409 584.822 329.406 594.551 313.222 583.913C273.216 557.636 232.573 531.905 200.841 495.263C194.021 487.352 189.475 476.714 186.566 466.531C183.201 454.529 188.111 443.345 197.749 435.435C236.119 403.885 274.67 372.516 313.495 341.511C321.041 335.51 329.952 330.691 338.862 326.964C353.046 321.054 366.958 325.782 372.868 337.238C378.778 348.694 374.686 360.423 362.32 370.243C325.315 399.884 288.4 429.616 249.212 460.985Z"
+                            fill="#949494"></path>
+                        <path class="hover-fill"
+                            d="M703.913 460.437C683.274 444.981 663.452 429.887 643.358 415.067C628.447 404.065 613.081 393.7 598.533 382.334C587.532 373.788 585.258 359.967 591.805 349.238C598.624 338.146 612.354 334.327 625.356 340.328C629.629 342.328 633.539 344.965 637.358 347.693C654.724 360.24 672.181 372.606 689.184 385.608C710.187 401.701 731.009 418.067 751.557 434.797C770.106 449.89 771.469 468.439 753.285 483.805C707.641 522.447 661.27 560.362 614.718 597.823C599.897 609.734 581.894 606.824 572.529 593.186C563.437 579.911 567.347 563.726 582.44 552.452C619.627 524.72 656.815 496.898 693.912 469.075C697.094 466.802 699.913 463.983 703.913 460.437Z"
+                            fill="#949494"></path>
+                    </g>
+                </svg><span>&nbsp;Projects</span>
+                <svg class="menu-chev" width="18px" height="18px" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289Z"
+                            fill="#6B8E23"></path>
+                    </g>
+                </svg></a>
+            <a class="nav-btn" data-target="about">
+                <svg width="30px" height="30px" viewBox="2 1 20 22" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    stroke="#000000" stroke-width="1.7">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path
+                            d="M11 10.5H11.5C11.7761 10.5 12 10.7239 12 11V15C12 15.2761 12.2239 15.5 12.5 15.5H13M12 8.5H12.01"
+                            stroke="#949494" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path
+                            d="M13.3892 19.8785C14.4238 19.696 15.4124 19.3116 16.2984 18.7471C17.1844 18.1827 17.9506 17.4492 18.5532 16.5886C19.1558 15.728 19.583 14.7572 19.8104 13.7315C20.0378 12.7058 20.0609 11.6454 19.8785 10.6108C19.696 9.5762 19.3116 8.58765 18.7471 7.7016C18.1827 6.81556 17.4492 6.04937 16.5886 5.44678C15.728 4.8442 14.7572 4.41702 13.7315 4.18963C12.7058 3.96225 11.6454 3.93911 10.6108 4.12154C9.5762 4.30397 8.58765 4.6884 7.7016 5.25287C6.81556 5.81734 6.04937 6.55081 5.44678 7.41139C4.8442 8.27197 4.41702 9.24281 4.18963 10.2685C3.96225 11.2942 3.93911 12.3546 4.12154 13.3892C4.30397 14.4238 4.6884 15.4124 5.25287 16.2984C5.81734 17.1844 6.55081 17.9506 7.41139 18.5532C8.27197 19.1558 9.24281 19.583 10.2685 19.8104C11.2942 20.0378 12.3546 20.0609 13.3892 19.8785L13.3892 19.8785Z"
+                            stroke="#949494"></path>
+                    </g>
+                </svg><span>&nbsp;About</span>
+                <svg class="menu-chev" width="18px" height="18px" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289Z"
+                            fill="#6B8E23"></path>
+                    </g>
+                </svg></a>
+            <a class="nav-btn" data-target="contact">
+                <svg width="30px" height="30px" viewBox="-1 1 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path
+                            d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12ZM16 12V13.5C16 14.8807 17.1193 16 18.5 16V16C19.8807 16 21 14.8807 21 13.5V12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21H16"
+                            stroke="#949494" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg><span>&nbsp;Contact</span>
+                <svg class="menu-chev" width="18px" height="18px" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289Z"
+                            fill="#6B8E23"></path>
+                    </g>
+                </svg></a>
+        </nav>
+        <div class="bg"></div>
+    </div>
+    <div id="content">
+        <div id="projects" class="section active">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project" onclick="openProject('project1')">
+                    <div class="project-content-outer">
+                        <img class="project-img" width="230px" height="133px" src="https://i.imgur.com/hC0wk20.jpeg"
+                            alt="social media blog">
+                        <div class="project-content-inner">
+                            <h3>Social media blogging app</h3>
+                            <p>A merge between Twitter, Naver Cafe and Medium. I took all the aspects I liked from each
+                                platform and implemented them into a single app.</p>
+                            <div class="tools">
+                                <img src="utils/php.svg">
+                                <img src="utils/js.svg">
+                                <img src="utils/html.svg">
+                                <img src="utils/css.svg">
+                                <img src="utils/git.svg">
+                            </div>
+                            <img width="200px" class="extension-marker" src="utils/website.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="project" onclick="openProject('project2')">
+                    <div class="project-content-outer">
+                        <img class="project-img" width="230px" height="133px" src="https://i.imgur.com/hmJ3Lhf.png"
+                            alt="social media blog">
+                        <div class="project-content-inner">
+                            <h3>Typing speed practicing app</h3>
+                            <p>Inspired by the simplicity of monkeytype.</p>
+                            <div class="tools">
+                                <img src="utils/laravel.svg">
+                                <img src="utils/vue.svg">
+                                <img src="utils/tailwind.svg">
+                                <img src="utils/html.svg">
+                                <img src="utils/css.svg">
+                                <img src="utils/git.svg">
+                            </div>
+                            <img width="200px" class="extension-marker" src="utils/website.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="project" onclick="openProject('project1')">
+                    <div class="project-content-outer">
+                        <img class="project-img" width="230px" height="133px" src="https://i.imgur.com/taYQC8J.jpeg"
+                            alt="social media blog">
+                        <div class="project-content-inner">
+                            <h3>YouTube Fast-Forwarder</h3>
+                            <p>Customizable inline buttons for fast forward/rewinding.</p>
+                            <div class="tools">
+                                <img src="utils/js.svg">
+                                <img src="utils/html.svg">
+                                <img src="utils/css.svg">
+                                <img src="utils/git.svg">
+                            </div>
+                            <img width="200px" class="extension-marker" src="utils/extension.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="project" onclick="openProject('project2')">
+                    <div class="project-content-outer">
+                        <img class="project-img" width="230px" height="133px" src="https://i.imgur.com/196T2vB.png"
+                            alt="social media blog">
+                        <div class="project-content-inner">
+                            <h3>YouTube AD skipper/blocker</h3>
+                            <p>A merge between Twitter, Naver Cafe and Medium. I took all the aspects I liked from each
+                                platform and implemented them into a single app.</p>
+                            <div class="tools">
+                                <img src="utils/js.svg">
+                            </div>
+                            <img width="200px" class="extension-marker" src="utils/extension.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about-contact">
+            <div id="about" class="section active">
+                <h2>About</h2>
+                <p>Write something about yourself here.</p>
+            </div>
+            <div id="contact" class="section active">
+                <h2>Contact</h2>
+                <form action="https://formspree.io/f/xnqweznk" method="POST" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="_replyto" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); color: #FFFFFF; overflow: auto;">
+        <div style="margin: 10% auto; padding: 20px; background-color: #1E1E1E; width: 80%; border-radius: 5px;">
+            <span style="float: right; cursor: pointer;" onclick="closeProject()">&times;</span>
+            <div id="project1" style="display: none;">
+                <h2>Project Title 1</h2>
+                <p>Full details of Project 1.</p>
+            </div>
+            <div id="project2" style="display: none;">
+                <h2>Project Title 2</h2>
+                <p>Full details of Project 2.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openProject(projectId) {
+            document.getElementById('project-modal').style.display = 'block';
+            document.getElementById(projectId).style.display = 'block';
+        }
+
+        function closeProject() {
+            document.getElementById('project-modal').style.display = 'none';
+            document.getElementById('project1').style.display = 'none';
+            document.getElementById('project2').style.display = 'none';
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navBtns = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('.section');
+            const homeBtn = document.getElementById('home-btn');
+
+            navBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const target = this.getAttribute('data-target');
+
+                    homeBtn.classList.remove('home-active');
+
+                    // Remove active class from all buttons and sections
+                    navBtns.forEach(btn => btn.classList.remove('active'));
+                    sections.forEach(section => section.classList.remove('active'));
+
+                    // Add active class to the clicked button and corresponding section
+                    this.classList.add('active');
+                    if (target) {
+                        document.getElementById(target).classList.add('active');
+                    } else {
+                        // If home button is clicked, activate all sections
+                        sections.forEach(section => section.classList.add('active'));
+                    }
+                });
+            });
+
+            homeBtn.addEventListener('click', function () {
+                // Remove active class from all buttons
+                homeBtn.classList.add('home-active');
+                navBtns.forEach(btn => btn.classList.remove('active'));
+                // Set all sections to active
+                sections.forEach(section => section.classList.add('active'));
+            });
+        });
+    </script>
+</body>
+
+</html>
