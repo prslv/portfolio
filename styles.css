@@ -19,7 +19,7 @@ body {
 
 .container {
     display: flex;
-    height: 100vh;
+    height: 100svh;
     margin: 0 auto;
 }
 
