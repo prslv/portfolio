@@ -534,6 +534,16 @@ text {
     border-radius: 5px;
 }
 
+.modal-project h3,
+.modal-project h2 {
+    margin-bottom: 10px;
+}
+
+.modal-project p,
+.modal-project ul {
+    margin: 10px 0;
+}
+
 #project-modal {
     z-index: 3;
 }
