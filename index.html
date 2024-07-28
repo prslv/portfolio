@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Preslav Kunov | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
@@ -149,12 +149,13 @@
                                 <h3>Social media blogging app</h3>
                                 <p>A merge between Twitter, Naver Cafe and Medium. I took all the aspects I liked from
                                     each
-                                    platform and implemented them into a single app.</p>
+                                    platform and implemented them into a single web application.</p>
                                 <div class="tools">
                                     <img src="utils/php.svg">
                                     <img src="utils/js.svg">
                                     <img src="utils/html.svg">
                                     <img src="utils/css.svg">
+                                    <img src="utils/mariadb.svg">
                                     <img src="utils/git.svg">
                                 </div>
                                 <img width="200px" class="extension-marker" src="utils/website.svg">
@@ -219,7 +220,13 @@
             <div class="about-contact">
                 <div id="about" class="section active">
                     <h2>About</h2>
-                    <p>Write something about yourself here.</p>
+                    <p>
+                        <img width="200px" src="images/selfie.jpg" alt="">
+                        I come from a mixed background of sports, music, art and technology. My interests have collided in many ways throuhgout the years, leading me to the current point of my life - pursuing development in the IT world. By determination and discipline I learn whatever I need while leveraging resources of any kind - from books and forums to modern assisting technologies.
+                        <br>
+                        <br>
+                        Delving into all these interests allowed me to gain the ability to think from multiple perspectives. Engaging in sports taught me teamwork and discipline, music nurtured my creativity and emotional intelligence, art sharpened my eye for detail and aesthetics, and technology sparked my curiosity and problem-solving skills. This blend of experiences allows me to apply diverse knowledge and unique thinking approaches to every project I undertake, making me a versatile and adaptive problem solver in the IT field.
+                    </p>
                 </div>
                 <div id="contact" class="section active">
                     <h2>Contact</h2>
@@ -242,46 +249,88 @@
             <div class="modal-project">
                 <span style="float: right; cursor: pointer;" onclick="closeProject()">&times;</span>
                 <div id="project1" style="display: none;">
-                    <h2>TITLE</h2>
-                    <p>DESCRIPTION</p>
-
-                    <h3>Features</h3>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-
-                    <h3>Technologies used</h3>
-                    <span class="tools"><img src="utils/js.svg">JavaScript</span>
+                    <h2>Social media blogging app (repuddle)</h2>
+                    <p>This project was my introduction to web development. It is a fully developed social media site, with custom Vanilla JS and PHP solutions.</p>
 
                     <h3>Screenshots</h3>
                     <div class="gallery">
                         <div class="thumbnails">
-                            <a href="images/AAAAAAA.png" data-fancybox="gallery1" data-caption="">
-                                <img src="images/AAAAAAA.png" alt="">
+                            <a href="images/p1-1.png" data-fancybox="gallery1" data-caption="">
+                                <img src="images/p1-1.png" alt="">
                             </a>
-                            <a hidden href="images/AAAAAAAA.png" data-fancybox="gallery1" data-caption="">
-                                <img src="images/AAAAAAA.png" alt="">
+                            <a href="images/p1-2.webp" data-fancybox="gallery1" data-caption="">
+                                <img src="images/p1-2.webp" alt="">
+                            </a>
+                            <a hidden href="images/p1-3.webp" data-fancybox="gallery1" data-caption="">
+                                <img src="images/p1-3.webp" alt="">
+                            </a>
+                            <a hidden href="images/p1-4.webp" data-fancybox="gallery1" data-caption="">
+                                <img src="images/p1-4.webp" alt="">
                             </a>
 
                             <button class="view-all-btn"><span>+3</span>View All</button>
                         </div>
                     </div>
 
-                    <h3>Challenges and learnings</h3>
-                    <p>
-                        <!-- abc -->
-                    </p>
+                    <h3>Features</h3>
+                    <ul>
+                        <li>User Profiles</li>
+                        <p>Create and manage user accounts</li>
+                        <p>Engage with posts by liking, commenting, bookmarking and sharing</li>
+                        <p>Set and edit display name, username, bio and social links</p>
+
+                        <h4>Profile types</h4>
+                        <p>There are 3 different types - Verified, Writer and a generic profile</p>
+                        <p>Verified and Writer accounts have a dedicated badge that shows in front of the user's name, and have the ability to write articles, create and manage lounges.</p>
+                        <li>Content Creation</li>
+                        <p>Writers and Verified users can create two types of content - articles and short form posts</p>
+
+                        <h4>Article page</h4>
+                        <p>Articles are:</p>
+                        <p>Editable, shareable and search engine optimized.</p>
+                        <p>Categorized with a main category and tags.</p>
+
+                        <h4>Lounge page</h4>
+                        <p>Inspired by <a href="https://section.cafe.naver.com/ca-fe/home" alt="Naver Cafe's">Naver's</a> cafe section</p>
+                        <p>Lounges are pages which foster multiple types of so called boards, on which appear different types of posts, decided by the editors.</p>
+                        <p>For example, a community lounge can have boards like a Notice Board, Discussions, Announcements, etc. The "Notice Board" can be set up to contain only short-form posts, while the rest can contain articles with topics relevant only to the boards they are assigned to. Certain boards can only have content posted by editors or moderators of the lounge.</p>
+                        <p>The user selects which lounge and which board to post his article in the article creation page.</p>
+                        
+                        <li>Search</li>
+                        <p>The search functionality is as follows:</p>
+                        <p>Search results update on each input, with requests being throttled to 1000ms/r to preserve resources</p>
+                        <p>The "Trending" section on the home page is tied to the search logic, by saving the search bar input in the form of search terms in the database, once the user clicks on a result. In case of repetition, a column named "times_searched" is being incremented by 1.</p>
+
+                        <li>SMTP Automated Emailing</li>
+                        <p>I implemented an automated email confirmation system using SMTP (Simple Mail Transfer Protocol), and used the PHPMailer library for managing the email sending process. This library simplifies SMTP configuration and email sending in PHP</p>
+                        
+                        <p>Automated Emails are set up for account confirmation, user security and recovery.</p>
+
+                        <li>Reporting</li>
+                        <p>Users can report all user created content in a few clicks. Reports can be anonymous as well.</p>
+                    </ul>
+
+                    <h3>Technologies used</h3>
+                    <div class="tools">
+                        <span class="tools"><img src="utils/php.svg">PHP</span>
+                        <span class="tools"><img src="utils/js.svg">JavaScript</span>
+                        <span class="tools"><img src="utils/html.svg">HTML</span>
+                        <span class="tools"><img src="utils/css.svg">CSS</span>
+                        <span class="tools"><img src="utils/mariadb.svg">MariaDB</span>
+                        <span class="tools"><img src="utils/git.svg">Git</span>
+                    </div>
 
                     <h3>Links</h3>
-                    <p><a href="" target="_blank" style="color: #6B8E23;">GitHub
-                            Repository</a></p>
+                    <p><a href="https://repuddle.com/" target="_blank" style="color: #6B8E23;">Live demo</a></p>
                 </div>
 
                 <div id="project2" style="display: none;">
-                    <h2>TITLE</h2>
-                    <p>DESCRIPTION</p>
+                    <h2>Typing speed practicing app (typr)</h2>
+                    <p>I challenged my self to use a modern PHP framework and build an app that can teach me the MVC (model-view-controller) architecture, routing and database management with Eloquent ORM, manage user authentication, and create dynamic views using Blade templating.</p>
+                    <h3></h3>
+                    <p>
+                        <!-- abc -->
+                    </p>
 
                     <h3>Features</h3>
                     <ul>
@@ -292,25 +341,32 @@
 
                     <h3>Technologies used</h3>
                     <span class="tools"><img src="utils/js.svg">JavaScript</span>
+                    <span class="tools"><img src="utils/html.svg">HTML</span>
+                    <span class="tools"><img src="utils/css.svg">CSS</span>
+                    <span class="tools"><img src="utils/git.svg">Git</span>
 
                     <h3>Screenshots</h3>
                     <div class="gallery">
                         <div class="thumbnails">
-                            <a href="images/AAAAAAA.png" data-fancybox="gallery2" data-caption="">
-                                <img src="images/AAAAAAA.png" alt="">
+                            <a href="images/p2-1.webp" data-fancybox="gallery2" data-caption="">
+                                <img src="images/p2-1.webp" alt="">
                             </a>
-                            <a hidden href="images/AAAAAAAA.png" data-fancybox="gallery2" data-caption="">
-                                <img src="images/AAAAAAA.png" alt="">
+                            <a href="images/p2-2.webp" data-fancybox="gallery2" data-caption="">
+                                <img src="images/p2-2.webp" alt="">
+                            </a>
+                            <a hidden href="images/p2-3.webp" data-fancybox="gallery2" data-caption="">
+                                <img src="images/p2-3.webp" alt="">
+                            </a>
+                            <a hidden href="images/p2-4.webp" data-fancybox="gallery2" data-caption="">
+                                <img src="images/p2-4.webp" alt="">
+                            </a>
+                            <a hidden href="images/p2-5.webp" data-fancybox="gallery2" data-caption="">
+                                <img src="images/p2-5.webp" alt="">
                             </a>
 
                             <button class="view-all-btn"><span>+3</span>View All</button>
                         </div>
                     </div>
-
-                    <h3>Challenges and learnings</h3>
-                    <p>
-                        <!-- abc -->
-                    </p>
 
                     <h3>Links</h3>
                     <p><a href="" target="_blank" style="color: #6B8E23;">GitHub
@@ -318,41 +374,50 @@
                 </div>
 
                 <div id="project3" style="display: none;">
-                    <h2>TITLE</h2>
-                    <p>DESCRIPTION</p>
+                    <h2>YouTube Fast Forward</h2>
+                    <h3>About</h3>
+                    
+                    <p>Customizable inline buttons to fast forward/rewind and seek through videos on YouTube </p>
+                    <p>
+                        Over 200 weekly active users
+                    </p>
 
                     <h3>Features</h3>
                     <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>Adjustable fast forward and rewind intervals.</li>
+                        <li>Buttons blend right into the player by using youtube's styling.</li>
+                        <li>Instant Sync Across Tabs: Any changes made to the skip intervals and seek through values are instantly applied across all open youtube tabs.</li>
+                        <li>Automatic Save: Custom settings are saved automatically in the user's browser local storage.</li>
                     </ul>
 
                     <h3>Technologies used</h3>
                     <span class="tools"><img src="utils/js.svg">JavaScript</span>
+                    <span class="tools"><img src="utils/html.svg">HTML</span>
+                    <span class="tools"><img src="utils/css.svg">CSS</span>
+                    <span class="tools"><img src="utils/git.svg">Git</span>
 
                     <h3>Screenshots</h3>
                     <div class="gallery">
                         <div class="thumbnails">
-                            <a href="images/AAAAAAA.png" data-fancybox="gallery3" data-caption="">
-                                <img src="images/AAAAAAA.png" alt="">
+                            <a href="images/p3-1.jpg" data-fancybox="gallery3" data-caption="">
+                                <img src="images/p3-1.jpg" alt="">
                             </a>
-                            <a hidden href="images/AAAAAAAA.png" data-fancybox="gallery3" data-caption="">
-                                <img src="images/AAAAAAA.png" alt="">
+                            <a href="images/p3-2.png" data-fancybox="gallery3" data-caption="">
+                                <img src="images/p3-2.png" alt="">
+                            </a>
+                            <a hidden href="images/p3-3.png" data-fancybox="gallery3" data-caption="">
+                                <img src="images/p3-3.png" alt="">
                             </a>
 
-                            <button class="view-all-btn"><span>+3</span>View All</button>
+                            <button class="view-all-btn"><span>+1</span>View All</button>
                         </div>
                     </div>
 
-                    <h3>Challenges and learnings</h3>
-                    <p>
-                        <!-- abc -->
-                    </p>
 
                     <h3>Links</h3>
-                    <p><a href="" target="_blank" style="color: #6B8E23;">GitHub
+                    <p><a href="https://github.com/prslv/youtube-fast-forward" target="_blank" style="color: #6B8E23;">GitHub
                             Repository</a></p>
+                    <p><a href="https://chromewebstore.google.com/detail/youtube-fast-forward/pknkmgaijamjmeeglhmgkpfgbkogkbob" target="_blank" style="color: #6B8E23;">Chrome Web Store</a></p>
                 </div>
 
                 <div id="project4" style="display: none;">
@@ -386,7 +451,7 @@
                         </div>
                     </div>
 
-                    <h3>Challenges and learnings</h3>
+                    <h3>About</h3>
                     <p>
                         Ensuring the extension consistently removed various ad elements from YouTube pages was
                         challenging.
