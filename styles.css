@@ -5,6 +5,7 @@
 
 html {
     /* overflow: hidden; */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -265,7 +266,7 @@ text {
     border-radius: 5px;
     position: relative;
     overflow: hidden;
-    transition: .2s ease;
+    transition: background-color .2s ease;
 }
 
 .project img {
@@ -373,14 +374,15 @@ text {
 
 .project-head-img {
     position: relative;
-    border-radius:15px;
+    border-radius: 15px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
     overflow: hidden;
 }
+
 .project-head-img img {
     height: 100%;
-    width:100%;
+    width: 100%;
     object-fit: cover;
 }
 
@@ -388,9 +390,9 @@ text {
     position: absolute;
     left: 0px;
     top: 0px;
-    width:100%;
-    height:100%;
-    display:flex;
+    width: 100%;
+    height: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -398,7 +400,7 @@ text {
 .visit-project span {
     opacity: 0;
     padding: 7px 15px;
-    color:white;
+    color: white;
     text-decoration: none;
     border: 1px solid white;
     border-radius: 25px;
@@ -409,9 +411,11 @@ text {
 .visit-project:hover span {
     opacity: 1;
 }
+
 .visit-project:hover {
     background: rgba(0, 0, 0, 0.459);
 }
+
 .tools {
     display: flex;
     flex-wrap: wrap;
@@ -430,10 +434,12 @@ text {
     .visit-project span {
         opacity: 1;
     }
+
     .visit-project {
         background: rgba(0, 0, 0, 0.219);
     }
 }
+
 @media (min-width: 768px) {
     /* #header {
         width: 100%;
@@ -491,6 +497,7 @@ text {
     .about-contact img {
         width: 150px;
     }
+
     .project-content-outer {
         flex-direction: column;
     }
@@ -609,6 +616,19 @@ text {
     stroke: #6B8E23;
 }
 
+#about {
+    opacity: 0;
+    transition: opacity 1s;
+    font-size: 14pt !important;
+}
+#about p {
+    font-size: 14pt !important;
+}
+
+.appear {
+    opacity: 1 !important;
+}
+
 .about-contact {
     /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); */
@@ -627,6 +647,15 @@ text {
     float: left;
     margin-right: 15px;
     border-radius: 15px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: transform 1s, opacity 1s;
+
+}
+
+.slide-right {
+    transform: translateX(0px) !important;
+    opacity: 1 !important;
 }
 
 .about-contact .section {

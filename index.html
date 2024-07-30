@@ -218,14 +218,23 @@
                 </div>
             </div>
             <div class="about-contact">
-                <div id="about" class="section active">
+                <div id="about" class="section active animOnView" data-setOnView="appear">
                     <h2>About</h2>
                     <p>
-                        <img width="200px" src="images/selfie.jpg" alt="">
-                        I come from a mixed background of sports, music, art and technology. My interests have collided in many ways throuhgout the years, leading me to the current point of my life - pursuing development in the IT world. With determination and discipline I learn whatever I need by leveraging resources of any kind - from books and forums to modern assisting technologies.
+                        <img class="animOnView" data-setOnView="slide-right" width="210px" src="images/selfie.jpg"
+                            alt="">
+                        I come from a mixed background of sports, music, art and technology. My interests have collided
+                        in many ways throuhgout the years, leading me to the current point of my life - pursuing
+                        development in the IT world. With determination and discipline I learn whatever I need by
+                        leveraging resources of any kind - from books and forums to modern assisting technologies.
                         <br>
                         <br>
-                        Delving into all these interests allowed me to gain the ability to think from multiple perspectives. Engaging in sports taught me teamwork and discipline, music nurtured my creativity and emotional intelligence, art sharpened my eye for detail and aesthetics, and technology sparked my curiosity and problem-solving skills. This blend of experiences allows me to apply diverse knowledge and unique thinking approaches to every project I undertake, making me a versatile and adaptive problem solver in the IT field.
+                        Delving into all these interests allowed me to gain the ability to think from multiple
+                        perspectives. Engaging in sports taught me teamwork and discipline, music nurtured my creativity
+                        and emotional intelligence, art sharpened my eye for detail and aesthetics, and technology
+                        sparked my curiosity and problem-solving skills. This blend of experiences allows me to apply
+                        diverse knowledge and unique thinking approaches to every project I undertake, making me a
+                        versatile and adaptive problem solver in the IT field.
                     </p>
                 </div>
                 <div id="contact" class="section active">
@@ -253,15 +262,31 @@
                     <div class="project-head-img">
                         <img width="100%" height="auto" src="images/hC0wk20.jpeg" alt="social media blog">
                         <a class="visit-project" target="_blank" href="https://repuddle.com/" alt="visit repuddle.com">
-                            <span>Visit <svg fill="#ffffff" transform="rotate(40)" height="12px" width="12px" version="1.1" id="XMLID_300_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="link-up"> <g> <polygon points="13,22 11,22 11,5.5 4.7,11.8 3.3,10.3 12,1.6 20.7,10.3 19.3,11.8 13,5.5 "></polygon> </g> </g> </g></svg></span>
+                            <span>Visit <svg fill="#ffffff" transform="rotate(40)" height="12px" width="12px"
+                                    version="1.1" id="XMLID_300_" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve"
+                                    stroke="#ffffff">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <g id="link-up">
+                                            <g>
+                                                <polygon
+                                                    points="13,22 11,22 11,5.5 4.7,11.8 3.3,10.3 12,1.6 20.7,10.3 19.3,11.8 13,5.5 ">
+                                                </polygon>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg></span>
                         </a>
                     </div>
-                    <p>This project was my introduction to web development. It is a fully developed social media site, with custom Vanilla JS and PHP solutions.</p>
+                    <p>This project was my introduction to web development. It is a fully developed social media site,
+                        with custom Vanilla JS and PHP solutions.</p>
                     <h3>Screenshots</h3>
                     <div class="gallery">
                         <div class="thumbnails">
-                            <a href="images/p1-1.png" data-fancybox="gallery1" data-caption="">
-                                <img src="images/p1-1.png" alt="">
+                            <a href="images/p1-1.PNG" data-fancybox="gallery1" data-caption="">
+                                <img src="images/p1-1.PNG" alt="">
                             </a>
                             <a href="images/p1-2.webp" data-fancybox="gallery1" data-caption="">
                                 <img src="images/p1-2.webp" alt="">
@@ -286,9 +311,11 @@
 
                         <h4>Profile types</h4>
                         <p>There are 3 different types - Verified, Writer and a generic profile</p>
-                        <p>Verified and Writer accounts have a dedicated badge that shows in front of the user's name, and have the ability to write articles, create and manage lounges.</p>
+                        <p>Verified and Writer accounts have a dedicated badge that shows in front of the user's name,
+                            and have the ability to write articles, create and manage lounges.</p>
                         <li>Content Creation</li>
-                        <p>Writers and Verified users can create two types of content - articles and short form posts</p>
+                        <p>Writers and Verified users can create two types of content - articles and short form posts
+                        </p>
 
                         <h4>Article page</h4>
                         <p>Articles are:</p>
@@ -296,23 +323,35 @@
                         <p>Categorized with a main category and tags.</p>
 
                         <h4>Lounge page</h4>
-                        <p>Inspired by <a href="https://section.cafe.naver.com/ca-fe/home" alt="Naver Cafe's">Naver's</a> cafe section</p>
-                        <p>Lounges are pages which foster multiple types of so called boards, on which appear different types of posts, decided by the editors.</p>
-                        <p>For example, a community lounge can have boards like a Notice Board, Discussions, Announcements, etc. The "Notice Board" can be set up to contain only short-form posts, while the rest can contain articles with topics relevant only to the boards they are assigned to. Certain boards can only have content posted by editors or moderators of the lounge.</p>
-                        <p>The user selects which lounge and which board to post his article in the article creation page.</p>
-                        
+                        <p>Inspired by <a href="https://section.cafe.naver.com/ca-fe/home"
+                                alt="Naver Cafe's">Naver's</a> cafe section</p>
+                        <p>Lounges are pages which foster multiple types of so called boards, on which appear different
+                            types of posts, decided by the editors.</p>
+                        <p>For example, a community lounge can have boards like a Notice Board, Discussions,
+                            Announcements, etc. The "Notice Board" can be set up to contain only short-form posts, while
+                            the rest can contain articles with topics relevant only to the boards they are assigned to.
+                            Certain boards can only have content posted by editors or moderators of the lounge.</p>
+                        <p>The user selects which lounge and which board to post his article in the article creation
+                            page.</p>
+
                         <li>Search</li>
                         <p>The search functionality is as follows:</p>
-                        <p>Search results update on each input, with requests being throttled to 1000ms/r to preserve resources</p>
-                        <p>The "Trending" section on the home page is tied to the search logic, by saving the search bar input in the form of search terms in the database, once the user clicks on a result. In case of repetition, a column named "times_searched" is being incremented by 1.</p>
+                        <p>Search results update on each input, with requests being throttled to 1000ms/r to preserve
+                            resources</p>
+                        <p>The "Trending" section on the home page is tied to the search logic, by saving the search bar
+                            input in the form of search terms in the database, once the user clicks on a result. In case
+                            of repetition, a column named "times_searched" is being incremented by 1.</p>
 
                         <li>SMTP Automated Emailing</li>
-                        <p>I implemented an automated email confirmation system using SMTP (Simple Mail Transfer Protocol), and used the PHPMailer library for managing the email sending process. This library simplifies SMTP configuration and email sending in PHP</p>
-                        
+                        <p>I implemented an automated email confirmation system using SMTP (Simple Mail Transfer
+                            Protocol), and used the PHPMailer library for managing the email sending process. This
+                            library simplifies SMTP configuration and email sending in PHP</p>
+
                         <p>Automated Emails are set up for account confirmation, user security and recovery.</p>
 
                         <li>Reporting</li>
-                        <p>Users can report all user created content in a few clicks. Reports can be anonymous as well.</p>
+                        <p>Users can report all user created content in a few clicks. Reports can be anonymous as well.
+                        </p>
                     </ul>
 
                     <h3>Technologies used</h3>
@@ -333,11 +372,29 @@
                     <h2>Typing speed practicing app (typr)</h2>
                     <div class="project-head-img">
                         <img width="100%" height="auto" src="images/hmJ3Lhf.png" alt="typing speed practicing app">
-                        <a class="visit-project" target="_blank" href="https://repuddle.com/typr" alt="typing speed practicing app">
-                            <span>Visit <svg fill="#ffffff" transform="rotate(40)" height="12px" width="12px" version="1.1" id="XMLID_300_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="link-up"> <g> <polygon points="13,22 11,22 11,5.5 4.7,11.8 3.3,10.3 12,1.6 20.7,10.3 19.3,11.8 13,5.5 "></polygon> </g> </g> </g></svg></span>
+                        <a class="visit-project" target="_blank" href="https://repuddle.com/typr"
+                            alt="typing speed practicing app">
+                            <span>Visit <svg fill="#ffffff" transform="rotate(40)" height="12px" width="12px"
+                                    version="1.1" id="XMLID_300_" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve"
+                                    stroke="#ffffff">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <g id="link-up">
+                                            <g>
+                                                <polygon
+                                                    points="13,22 11,22 11,5.5 4.7,11.8 3.3,10.3 12,1.6 20.7,10.3 19.3,11.8 13,5.5 ">
+                                                </polygon>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg></span>
                         </a>
                     </div>
-                    <p>I challenged my self to use a modern PHP framework and build an app that can teach me the MVC (model-view-controller) architecture, routing and database management with Eloquent ORM, manage user authentication, and create dynamic views using Blade templating.</p>
+                    <p>I challenged my self to use a modern PHP framework and build an app that can teach me the MVC
+                        (model-view-controller) architecture, routing and database management with Eloquent ORM, manage
+                        user authentication, and create dynamic views using Blade templating.</p>
                     <h3></h3>
                     <p>
                         <!-- abc -->
@@ -388,12 +445,29 @@
                     <h2>YouTube Fast Forward</h2>
                     <div class="project-head-img">
                         <img width="100%" height="auto" src="images/taYQC8J.png" alt="youtube fast forward extension">
-                        <a class="visit-project" target="_blank" href="https://chromewebstore.google.com/detail/youtube-fast-forward/pknkmgaijamjmeeglhmgkpfgbkogkbob" alt="youtube fast forward extension">
-                            <span>Visit <svg fill="#ffffff" transform="rotate(40)" height="12px" width="12px" version="1.1" id="XMLID_300_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="link-up"> <g> <polygon points="13,22 11,22 11,5.5 4.7,11.8 3.3,10.3 12,1.6 20.7,10.3 19.3,11.8 13,5.5 "></polygon> </g> </g> </g></svg></span>
+                        <a class="visit-project" target="_blank"
+                            href="https://chromewebstore.google.com/detail/youtube-fast-forward/pknkmgaijamjmeeglhmgkpfgbkogkbob"
+                            alt="youtube fast forward extension">
+                            <span>Visit <svg fill="#ffffff" transform="rotate(40)" height="12px" width="12px"
+                                    version="1.1" id="XMLID_300_" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve"
+                                    stroke="#ffffff">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <g id="link-up">
+                                            <g>
+                                                <polygon
+                                                    points="13,22 11,22 11,5.5 4.7,11.8 3.3,10.3 12,1.6 20.7,10.3 19.3,11.8 13,5.5 ">
+                                                </polygon>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg></span>
                         </a>
                     </div>
                     <h3>About</h3>
-                    
+
                     <p>Customizable inline buttons to fast forward/rewind and seek through videos on YouTube </p>
                     <p>
                         Over 200 weekly active users
@@ -403,8 +477,10 @@
                     <ul>
                         <li>Adjustable fast forward and rewind intervals.</li>
                         <li>Buttons blend right into the player by using youtube's styling.</li>
-                        <li>Instant Sync Across Tabs: Any changes made to the skip intervals and seek through values are instantly applied across all open youtube tabs.</li>
-                        <li>Automatic Save: Custom settings are saved automatically in the user's browser local storage.</li>
+                        <li>Instant Sync Across Tabs: Any changes made to the skip intervals and seek through values are
+                            instantly applied across all open youtube tabs.</li>
+                        <li>Automatic Save: Custom settings are saved automatically in the user's browser local storage.
+                        </li>
                     </ul>
 
                     <h3>Technologies used</h3>
@@ -432,17 +508,36 @@
 
 
                     <h3>Links</h3>
-                    <p><a href="https://github.com/prslv/youtube-fast-forward" target="_blank" style="color: #6B8E23;">GitHub
+                    <p><a href="https://github.com/prslv/youtube-fast-forward" target="_blank"
+                            style="color: #6B8E23;">GitHub
                             Repository</a></p>
-                    <p><a href="https://chromewebstore.google.com/detail/youtube-fast-forward/pknkmgaijamjmeeglhmgkpfgbkogkbob" target="_blank" style="color: #6B8E23;">Chrome Web Store</a></p>
+                    <p><a href="https://chromewebstore.google.com/detail/youtube-fast-forward/pknkmgaijamjmeeglhmgkpfgbkogkbob"
+                            target="_blank" style="color: #6B8E23;">Chrome Web Store</a></p>
                 </div>
 
                 <div id="project4" style="display: none;">
                     <h2>YouTube AD Skipper/Blocker</h2>
                     <div class="project-head-img">
-                        <img width="100%" height="auto" src="images/196T2vB.png" alt="youtube ad skipper/blocker extension">
-                        <a class="visit-project" target="_blank" href="https://github.com/prslv/youtube-ad-skipper" alt="youtube ad skipper/blocker extension">
-                            <span>Visit <svg fill="#ffffff" transform="rotate(40)" height="12px" width="12px" version="1.1" id="XMLID_300_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="link-up"> <g> <polygon points="13,22 11,22 11,5.5 4.7,11.8 3.3,10.3 12,1.6 20.7,10.3 19.3,11.8 13,5.5 "></polygon> </g> </g> </g></svg></span>
+                        <img width="100%" height="auto" src="images/196T2vB.png"
+                            alt="youtube ad skipper/blocker extension">
+                        <a class="visit-project" target="_blank" href="https://github.com/prslv/youtube-ad-skipper"
+                            alt="youtube ad skipper/blocker extension">
+                            <span>Visit <svg fill="#ffffff" transform="rotate(40)" height="12px" width="12px"
+                                    version="1.1" id="XMLID_300_" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve"
+                                    stroke="#ffffff">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <g id="link-up">
+                                            <g>
+                                                <polygon
+                                                    points="13,22 11,22 11,5.5 4.7,11.8 3.3,10.3 12,1.6 20.7,10.3 19.3,11.8 13,5.5 ">
+                                                </polygon>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg></span>
                         </a>
                     </div>
                     <p>Skips interrupting video ads and hides ad elements from the home, video, and search pages.</p>
@@ -508,7 +603,35 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elementsToAnimate = document.querySelectorAll('.animOnView');
 
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                rootMargin: '100px',
+                threshold: 0.9 // Trigger when 10% of the element is in view
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetElement = entry.target;
+                        const animationClass = targetElement.getAttribute('data-setOnView');
+
+                        if (!targetElement.classList.contains(animationClass)) {
+                            targetElement.classList.add(animationClass);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            elementsToAnimate.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+    </script>
     <script>
         $(document).ready(function () {
             $('[data-fancybox="gallery"]').fancybox({
