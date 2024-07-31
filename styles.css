@@ -233,6 +233,7 @@ text {
 
 .section h2 {
     margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .projects {
@@ -411,6 +412,12 @@ text {
 .visit-project:hover span {
     opacity: 1;
 }
+
+.visit-project:hover {
+    text-decoration: none !important;
+    opacity: 1;
+}
+
 
 .visit-project:hover {
     background: rgba(0, 0, 0, 0.459);
@@ -621,6 +628,7 @@ text {
     transition: opacity 1s;
     font-size: 14pt !important;
 }
+
 #about p {
     font-size: 14pt !important;
 }
@@ -647,13 +655,16 @@ text {
     float: left;
     margin-right: 15px;
     border-radius: 15px;
-    opacity: 0;
     transform: translateY(100px);
-    transition: transform 1s, opacity 1s;
-
 }
 
-.slide-right {
+.about-contact img,
+#contact {
+    opacity: 0;
+    transition: transform 1s, opacity 1s;
+}
+
+.appear img {
     transform: translateX(0px) !important;
     opacity: 1 !important;
 }
@@ -737,6 +748,10 @@ p,
     color: whitesmoke;
     border-radius: 15px;
     cursor: pointer;
+}
+
+.view-all-btn a {
+    text-decoration: none;
 }
 
 .view-all-btn:hover {

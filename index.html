@@ -221,7 +221,7 @@
                 <div id="about" class="section active animOnView" data-setOnView="appear">
                     <h2>About</h2>
                     <p>
-                        <img class="animOnView" data-setOnView="slide-right" width="210px" src="images/selfie.jpg"
+                        <img width="210px" src="images/selfie.jpg"
                             alt="">
                         I come from a mixed background of sports, music, art and technology. My interests have collided
                         in many ways throuhgout the years, leading me to the current point of my life - pursuing
@@ -237,8 +237,8 @@
                         versatile and adaptive problem solver in the IT field.
                     </p>
                 </div>
-                <div id="contact" class="section active">
-                    <h2>Contact</h2>
+                <div id="contact" class="section active animOnView" data-setOnView="appear">
+                    <h2>Get in touch</h2>
                     <form action="https://formspree.io/f/xnqweznk" method="POST" class="contact-form">
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="_replyto" placeholder="Your Email" required>
@@ -609,7 +609,7 @@
 
             const observerOptions = {
                 root: null, // Use the viewport as the root
-                rootMargin: '0',
+                rootMargin: '0px',
                 threshold: 0.5 // Trigger when 10% of the element is in view
             };
 
