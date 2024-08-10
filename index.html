@@ -4,15 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preslav Kunov | Portfolio</title>
+    <title>Preslav Kunov | Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Render blocking JS:
+        var themeValue = localStorage.getItem('theme');
+        if (themeValue) {
+            document.documentElement.setAttribute("data-theme", themeValue)
+        } else {
+            localStorage.setItem('theme', 0);
+        }
+    </script>
 </head>
 
-<body>
+<body data-theme="1">
     <div class="container">
         <div id="header">
             <div class="home home-active" id="home-btn">
@@ -86,7 +95,7 @@
                         <g id="SVGRepo_iconCarrier">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289Z"
-                                fill="#6B8E23"></path>
+                                fill="#4e98ce"></path>
                         </g>
                     </svg></a>
                 <a class="nav-btn" data-target="about">
@@ -110,7 +119,7 @@
                         <g id="SVGRepo_iconCarrier">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289Z"
-                                fill="#6B8E23"></path>
+                                fill="#4e98ce"></path>
                         </g>
                     </svg></a>
                 <a class="nav-btn" data-target="contact">
@@ -131,7 +140,7 @@
                         <g id="SVGRepo_iconCarrier">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289Z"
-                                fill="#6B8E23"></path>
+                                fill="#4e98ce"></path>
                         </g>
                     </svg></a>
             </nav>
@@ -139,7 +148,74 @@
         </div>
         <div id="content">
             <div id="projects" class="section active">
-                <h2>Projects</h2>
+                <div>
+                    <h2>Projects</h2>
+                    <div class="theme-switch day">
+                        <div class="slider-body">
+                            <div class="slider-text">
+                                <span class="day">DAY</span>
+                                <span class="night">NIGHT</span>
+                            </div>
+                            <div class="slider-switch">
+                                <div class="day"><img src="svg/sun.svg" alt=""></div>
+                                <div class="night"><img src="svg/moon.svg" alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const sliderBody = document.querySelector('.theme-switch');
+                        const sliderSwitch = document.querySelector('.slider-switch');
+
+                        sliderBody.addEventListener('click', () => {
+                            if (sliderBody.classList.contains('day')) {
+                                darkModeOn(sliderBody);
+                            } else {
+                                lightModeOn(sliderBody);
+                            }
+                        });
+
+                        if (localStorage.getItem("theme") === null) {
+                            localStorage.setItem('theme', 1);
+                            lightModeOn(sliderBody);
+                        }
+
+                        if (localStorage.getItem('theme')) {
+                            themeValue = localStorage.getItem('theme');
+
+                            if (themeValue === '0') {
+                                darkModeOn(sliderBody);
+                            } else {
+                                lightModeOn(sliderBody);
+                            }
+                        }
+
+                        function lightModeOn(sliderBody) {
+                            document.documentElement.dataset.theme = "1";
+                            sliderBody.classList.remove('night');
+                            sliderBody.classList.add('day');
+                            localStorage.setItem('theme', 1);
+                        }
+                        function darkModeOn(sliderBody) {
+                            document.documentElement.dataset.theme = "0";
+                            sliderBody.classList.remove('day');
+                            sliderBody.classList.add('night');
+                            localStorage.setItem('theme', 0);
+                        }
+
+
+
+
+                        // const sliderDay = document.querySelector('.slider-switch');
+                        // const sliderNight = document.querySelector('.slider-switch');
+
+                        // const bodyTextDay = document.querySelector('.slider-body .day');
+                        // const bodyTextNight = document.querySelector('.slider-body .night');
+
+
+                    });
+                </script>
                 <div class="projects">
                     <div class="project" onclick="openProject('project1')">
                         <div class="project-content-outer">
@@ -221,11 +297,12 @@
                 <div id="about" class="section active animOnView" data-setOnView="appear">
                     <h2>About</h2>
                     <p>
-                        <img width="210px" src="images/selfie.jpg" alt="">
+                        <img width="210px" src="images/selfie1.jpg" alt="">
                         I come from a mixed background of sports, music, art and technology. My interests have collided
                         in many ways throuhgout the years, leading me to the current point of my life - pursuing
                         development in the IT world. With determination and discipline I learn whatever I need by
-                        leveraging resources of any kind - from books and forums to modern assisting technologies.
+                        leveraging resources of any kind - from documentation, books and forums to modern assisting
+                        technologies.
                         <br>
                         <br>
                         Delving into all these interests allowed me to gain the ability to think from multiple
@@ -251,9 +328,7 @@
         </div>
 
         <!-- Project Modal -->
-        <div id="project-modal"
-            style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); color: #FFFFFF; overflow: auto;">
-
+        <div id="project-modal">
             <div class="modal-project">
                 <span style="float: right; cursor: pointer;" onclick="closeProject()">&times;</span>
                 <div id="project1" style="display: none;">
@@ -303,23 +378,44 @@
 
                     <h3>Features</h3>
                     <ul>
-                        <li>User Profiles</li>
-                        <p>Create and manage user accounts</li>
-                        <p>Engage with posts by liking, commenting, bookmarking and sharing</li>
-                        <p>Set and edit display name, username, bio and social links</p>
+                        <li>
+                            <h4>
+                                User Profiles
+                            </h4>
+                        </li>
+                        <ul>
+                            <li>Create and manage user accounts</li>
+                            <li>Engage with posts by liking, commenting, bookmarking, and sharing</li>
+                            <li>Set and edit display name, username, bio, and social links</li>
+                        </ul>
 
                         <h4>Profile types</h4>
-                        <p>There are 3 different types - Verified, Writer and a generic profile</p>
-                        <p>Verified and Writer accounts have a dedicated badge that shows in front of the user's name,
-                            and have the ability to write articles, create and manage lounges.</p>
-                        <li>Content Creation</li>
+                        <ul>
+                            <li>There are 3 different types - Verified, Writer, and a generic profile</li>
+                            <li>Verified and Writer accounts have a dedicated badge that shows in front of the user's
+                                name and have the ability to write articles, create, and manage lounges.</li>
+                        </ul>
+                        <h4>Security</h4>
+                        <p>Passwords are hashed with unique salts.</p>
+                        <p>User sessions are created by setting a cookie with a token that consists of multiple
+                            verifiable id's, which update on each login. If a single id fails verification the session
+                            is destroyed. Because of the size of the string and the updating id's, it's pretty much
+                            impossible to guess, or as gippity put it - Even with the most powerful supercomputers
+                            available today, trying to guess such a string would take an incomprehensible amount of
+                            time—likely longer than the age of the universe."</p>
+                        <li>
+                            <h4>Content Creation</h4>
+                        </li>
+
                         <p>Writers and Verified users can create two types of content - articles and short form posts
                         </p>
 
                         <h4>Article page</h4>
                         <p>Articles are:</p>
-                        <p>Editable, shareable and search engine optimized.</p>
-                        <p>Categorized with a main category and tags.</p>
+                        <ul>
+                            <li>Editable, shareable, and search engine optimized</li>
+                            <li>Categorized with a main category and tags</li>
+                        </ul>
 
                         <h4>Lounge page</h4>
                         <p>Inspired by <a href="https://section.cafe.naver.com/ca-fe/home"
@@ -330,25 +426,32 @@
                             Announcements, etc. The "Notice Board" can be set up to contain only short-form posts, while
                             the rest can contain articles with topics relevant only to the boards they are assigned to.
                             Certain boards can only have content posted by editors or moderators of the lounge.</p>
-                        <p>The user selects which lounge and which board to post his article in the article creation
+                        <p>The user selects in which lounge and which board to post his article in the article creation
                             page.</p>
 
-                        <li>Search</li>
+                        <li>
+                            <h4>Search</h4>
+                        </li>
                         <p>The search functionality is as follows:</p>
                         <p>Search results update on each input, with requests being throttled to 1000ms/r to preserve
                             resources</p>
                         <p>The "Trending" section on the home page is tied to the search logic, by saving the search bar
-                            input in the form of search terms in the database, once the user clicks on a result. In case
+                            input in the form of 'search terms' in the database, once the user clicks on a result. In
+                            case
                             of repetition, a column named "times_searched" is being incremented by 1.</p>
 
-                        <li>SMTP Automated Emailing</li>
+                        <li>
+                            <h4>SMTP Automated Emailing</h4>
+                        </li>
                         <p>I implemented an automated email confirmation system using SMTP (Simple Mail Transfer
                             Protocol), and used the PHPMailer library for managing the email sending process. This
                             library simplifies SMTP configuration and email sending in PHP</p>
 
                         <p>Automated Emails are set up for account confirmation, user security and recovery.</p>
 
-                        <li>Reporting</li>
+                        <li>
+                            <h4>Reporting</h4>
+                        </li>
                         <p>Users can report all user created content in a few clicks. Reports can be anonymous as well.
                         </p>
                     </ul>
@@ -364,7 +467,7 @@
                     </div>
 
                     <h3>Links</h3>
-                    <p><a href="https://repuddle.com/" target="_blank" style="color: #6B8E23;">Live demo</a></p>
+                    <p><a href="https://repuddle.com/" target="_blank" style="color: #4e98ce;">Live demo</a></p>
                 </div>
 
                 <div id="project2" style="display: none;">
@@ -514,7 +617,7 @@
                     <span class="tools"><img src="utils/git.svg">Git</span>
 
                     <h3>Links</h3>
-                    <p><a href="" target="_blank" style="color: #6B8E23;">GitHub
+                    <p><a href="" target="_blank" style="color: #4e98ce;">GitHub
                             Repository</a></p>
                 </div>
 
@@ -586,10 +689,10 @@
 
                     <h3>Links</h3>
                     <p><a href="https://github.com/prslv/youtube-fast-forward" target="_blank"
-                            style="color: #6B8E23;">GitHub
+                            style="color: #4e98ce;">GitHub
                             Repository</a></p>
                     <p><a href="https://chromewebstore.google.com/detail/youtube-fast-forward/pknkmgaijamjmeeglhmgkpfgbkogkbob"
-                            target="_blank" style="color: #6B8E23;">Chrome Web Store</a></p>
+                            target="_blank" style="color: #4e98ce;">Chrome Web Store</a></p>
                 </div>
 
                 <div id="project4" style="display: none;">
@@ -673,9 +776,9 @@
                     </p>
                     <h3>Links</h3>
                     <p><a href="https://github.com/prslv/youtube-ad-skipper" target="_blank"
-                            style="color: #6B8E23;">GitHub
+                            style="color: #4e98ce;">GitHub
                             Repository</a></p>
-                    <!-- <p><a href="https://chrome.google.com/webstore/detail/youtube-ad-skipper" target="_blank" style="color: #6B8E23;">Chrome Extension</a></p> -->
+                    <!-- <p><a href="https://chrome.google.com/webstore/detail/youtube-ad-skipper" target="_blank" style="color: #4e98ce;">Chrome Extension</a></p> -->
                 </div>
             </div>
         </div>

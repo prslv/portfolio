@@ -3,6 +3,37 @@
 
 }
 
+:root {
+    /* background colors */
+    --main-bg: #eaeaea;
+    --inner-bg: #fbfdff;
+    --inner-bg-gradient: linear-gradient(44deg, #f8fcff, #ffffff);
+    --input-bg: #e7e7e7;
+    --project-inner-bg: linear-gradient(37deg, #fbfeff, #e3e3e3de);
+    --soft-box-shadow: #0000001c;
+    --modal-project-bg: #f3f3f3;
+    --project-hover-bg: rgb(221, 221, 221);
+
+    /* text colors */
+    --main-color: #1c1c1c;
+    --modal-project-p: rgb(43, 43, 43);
+}
+
+[data-theme="0"] {
+    /* background colors */
+    --main-bg: #1E1E1E;
+    --inner-bg: #2b2d2e;
+    --inner-bg-gradient: linear-gradient(44deg, #2b2d2e, #2B2B2B);
+    --input-bg: #3a3a3a;
+    --project-inner-bg: #1e1e1ef0;
+    --modal-project-bg: #1d1d1d;
+    --project-hover-bg: rgb(22, 22, 22);
+
+    /* text colors */
+    --main-color: #FFFFFF;
+    --modal-project-p: rgb(204, 204, 204);
+}
+
 html {
     /* overflow: hidden; */
     scroll-behavior: smooth;
@@ -12,10 +43,26 @@ body {
     margin: 0;
     min-width: 361px;
     font-family: Arial, sans-serif;
-    background-color: #1E1E1E;
-    color: #FFFFFF;
+    background-color: var(--main-bg);
+    color: var(--main-color);
     font-size: 16px;
     max-width: 2440px;
+}
+
+h2 {
+    font-size: 17pt;
+}
+
+h3 {
+    font-size: 15pt;
+}
+
+h4 {
+    font-size: 14pt;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .container {
@@ -33,7 +80,7 @@ body {
     height: 100%;
     width: 75px;
     min-width: 75px;
-    background-color: #1E1E1E;
+    /* background-color: #1E1E1E; */
     padding: 5px;
     box-sizing: border-box;
     transition: width .1s ease;
@@ -64,10 +111,102 @@ nav,
 
 #header h1 {
     opacity: 0;
-    font-size: 24px;
     color: #A6A6A6;
     transition: opacity .2s ease;
 }
+
+/* theme slider */
+.theme-switch {
+    position: absolute;
+    top:-5px;
+    right:0;
+}
+.slider-body {
+    width: 70px;
+    height: 30px;
+    font-size: 7pt;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 30px;
+    position: relative;
+    color: gray;
+    user-select: none;
+    cursor: pointer;
+}
+
+.slider-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.theme-switch .slider-switch .day,
+.theme-switch .slider-switch .night,
+.theme-switch.day .slider-text .night,
+.theme-switch.night .slider-text .day {
+    opacity: 0;
+}
+
+.slider-text .day {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+}
+
+.slider-text .night {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+.slider-switch .day,
+.slider-switch .night {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+}
+
+.slider-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform .3s ease;
+}
+
+.theme-switch.day .slider-body {
+    background: var(--main-bg);
+}
+
+.theme-switch.night .slider-body {
+    background: var(--main-bg);
+}
+
+.theme-switch.day .slider-switch {
+    background: #fffffe;
+    transform: translateX(42px);
+}
+
+.theme-switch.night .slider-switch {
+    background: var(--inner-bg-gradient);
+    transform: translateX(2px);
+}
+
+.theme-switch.night .slider-switch .night,
+.theme-switch.day .slider-switch .day {
+    opacity: 1;
+}
+
+
+
+
+/* end theme slider */
 
 #header span,
 #header .menu-chev {
@@ -86,7 +225,7 @@ nav,
 
 nav {
     height: 100%;
-    background: #2b2d2e;
+    background: var(--inner-bg);
     padding: 5px 15px;
     border-radius: 5px;
 }
@@ -101,8 +240,7 @@ nav {
 }
 
 #header:hover span,
-#header:hover h1,
-#header:hover .bg {
+#header:hover h1 {
     opacity: 1;
 }
 
@@ -124,11 +262,11 @@ nav {
 }
 
 .active path {
-    stroke: #6B8E23;
+    /* stroke: #4e98ce; */
 }
 
 .active .hover-fill {
-    fill: #6B8E23;
+    fill: #4e98ce;
 }
 
 .active:hover .menu-chev {
@@ -211,7 +349,7 @@ text {
     margin-left: 0;
     padding: 20px;
     padding-right: 15px;
-    background: linear-gradient(44deg, #2b2d2e, #2B2B2B);
+    background: var(--inner-bg-gradient);
     overflow: hidden;
     overflow-y: scroll;
     border-radius: 5px;
@@ -224,7 +362,7 @@ text {
     overflow-y: scroll;
     border-radius: 5px; */
     /* scrollbar-width: 5px;
-    scrollbar-color: #6B8E23 transparent; */
+    scrollbar-color: #4e98ce transparent; */
 }
 
 .section {
@@ -260,31 +398,30 @@ text {
     z-index: 0;
 }
 
+.project img {
+    border-radius: 5px;
+}
+
 .project {
-    background-color: #1E1E1E;
+    background-color: var(--main-bg);
     padding: 15px;
     cursor: pointer;
     border-radius: 5px;
     position: relative;
     overflow: hidden;
-    transition: background-color .2s ease;
+    /* transition: background-color .2s ease; */
 }
 
-.project img {
-    border-radius: 5px;
-}
 
 .project:hover {
     /* box-shadow: inset 0 0 134px 0px #0d1106; */
-    /* outline: 2px solid #6B8E23; */
-    background: rgb(54, 54, 54);
+    /* outline: 2px solid #4e98ce; */
+    background: var(--project-hover-bg);
     box-shadow: 0 0 10px 0px #00000017;
 }
 
 .project h3 {
     display: -webkit-box;
-    font-size: 18px;
-    color: #C0C0C0;
     margin: 0;
     /* margin-bottom: 5px; */
     -webkit-line-clamp: 1;
@@ -296,7 +433,7 @@ text {
 
 .project p {
     font-size: 16px;
-    color: #A6A6A6;
+    color: gray;
     margin: 0;
     /* margin-top: 5px; */
     display: -webkit-box;
@@ -309,7 +446,7 @@ text {
 
 .project a,
 .modal-project a {
-    color: #6B8E23;
+    color: #4e98ce;
     text-decoration: none;
 }
 
@@ -329,8 +466,7 @@ text {
     margin: 5px 0;
     border: none;
     border-radius: 5px;
-    background-color: #1e1e1e;
-    color: #FFFFFF;
+    background-color: var(--input-bg);
     font-size: 16px;
     box-sizing: border-box;
     font-family: inherit;
@@ -344,9 +480,15 @@ text {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #6B8E23;
+    /* background-color: #4e98ce; */
+    background-color: #5499cb;
+    background: linear-gradient(45deg, #4e98ce, #00adffb8);
     color: #FFFFFF;
     cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: linear-gradient(45deg, #00adffb8, #00adffb8);
 }
 
 .section {
@@ -374,11 +516,13 @@ text {
 }
 
 .project-head-img {
+    display: flex;
     position: relative;
     border-radius: 15px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
     overflow: hidden;
+    box-shadow: 0 0 17px 0px var(--soft-box-shadow);
 }
 
 .project-head-img img {
@@ -466,7 +610,8 @@ text {
     .project-content-inner {
         position: absolute;
         bottom: 0;
-        background: #1e1e1ef0;
+        background: var(--project-inner-bg);
+        /* box-shadow: 0 0 15px -6px rgba(0, 0, 0, 0.747); */
         margin-left: 0;
         left: 0;
         right: 0;
@@ -512,7 +657,7 @@ text {
     .project-content-inner {
         position: absolute;
         bottom: 0;
-        background: #1e1e1ef0;
+        background: var(--project-inner-bg);
         margin-left: 0;
         left: 0;
         right: 0;
@@ -620,7 +765,7 @@ text {
 }
 
 .home-active path {
-    stroke: #6B8E23;
+    stroke: #4e98ce;
 }
 
 #about {
@@ -677,7 +822,7 @@ text {
 .modal-project {
     margin: 10% auto;
     padding: 20px;
-    background-color: #1E1E1E;
+    background-color: var(--modal-project-bg);
     width: 100%;
     max-width: 780px;
     border-radius: 5px;
@@ -694,24 +839,34 @@ text {
 }
 
 #project-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+}
+
+#project-modal {
     z-index: 3;
 }
 
 #project-modal p,
 p,
 #project-modal li {
-    font-size: 13pt;
+    font-size: 14pt;
 }
 
 .modal-project ul p {
-    color: rgb(204, 204, 204) !important;
+    color: var(--modal-project-p) !important;
     margin-left: 13px;
-    font-size: 13pt !important;
+    font-size: 14pt !important;
 }
 
 .modal-project ul h4 {
     margin: 15px 0px 10px 13px;
-    color: #e2e2e2fa;
 }
 
 .thumbnails img {
