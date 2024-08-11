@@ -178,13 +178,13 @@ nav,
 
 .slider-text .day {
     position: absolute;
-    top: 11px;
+    /* top: 11px; */
     left: 18px;
 }
 
 .slider-text .night {
     position: absolute;
-    top: 11px;
+    /* top: 11px; */
     right: 7px;
 }
 
@@ -753,8 +753,13 @@ text {
     stroke: var(--main-color);
 }
 
+.project-category {
+    color: gray;
+    font-size: 11pt;
+}
+
 .modal-project h2 {
-    text-align: center;
+    /* text-align: center; */
     margin-top: 10px;
 }
 
@@ -835,7 +840,7 @@ p,
     width: 110px;
     border: 2px solid transparent;
     transition: border .2s ease;
-    color: whitesmoke;
+    color: var(--main-color);
     border-radius: 15px;
     cursor: pointer;
 }
@@ -951,6 +956,7 @@ p,
         flex-direction: row-reverse;
         width: 100%;
         height: 80px;
+        max-height: 80px;
         min-height: 80px;
     }
 
