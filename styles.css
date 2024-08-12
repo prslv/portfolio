@@ -120,7 +120,7 @@ nav,
 
 /* theme slider */
 .theme-switch {
-    z-index: 999999999999999;
+    z-index: 3;
     position: absolute;
     top: 2px;
     right: 2px;
@@ -790,7 +790,7 @@ text {
 }
 
 #project-modal {
-    z-index: 999999999999;
+    z-index: 4;
 }
 
 #project-modal p,
