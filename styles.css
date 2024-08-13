@@ -762,10 +762,11 @@ text {
     /* text-align: center; */
     margin-top: 10px;
 }
-
+.modal-project h4,
 .modal-project h3,
 .modal-project h2 {
     margin-bottom: 12px;
+    color: var(--main-color);
 }
 
 .modal-project p,
@@ -799,7 +800,7 @@ p,
     font-size: 14pt;
 }
 
-.modal-project ul p {
+.modal-project p, .modal-project li {
     color: var(--modal-project-p) !important;
     /* margin-left: 13px; */
     font-size: 14pt !important;
