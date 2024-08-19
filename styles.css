@@ -509,7 +509,7 @@ text {
     border-top-left-radius: 15px;
     /* box-shadow: -6px -5px 8px #7f7f7f; */
     z-index: 1;
-    transition: width .3s, height .3s;
+    transition: width .3s, height .3s, opacity 1s;
 }
 
 .contact-inner-content {
@@ -727,8 +727,6 @@ text {
 .flex-mob {
     display: none !important;
 }
-
-
 
 .home-active path {
     stroke: #4e98ce;
@@ -949,6 +947,7 @@ p,
     }
 
     #contact {
+        opacity: 0;
         position: relative;
         width: auto;
         height: auto;
