@@ -488,6 +488,58 @@ text {
     margin-right: 20px;
 }
 
+.expand-contact-true .contact-inner-content {
+    opacity: 1;
+}
+
+.expand-contact-false .contact-inner-content {
+    opacity: 0;
+}
+
+#contact {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    height: 47px;
+    width: 47px;
+    padding: 15px;
+    box-sizing: border-box;
+    background: var(--main-bg);
+    margin: 0;
+    border-top-left-radius: 15px;
+    /* box-shadow: -6px -5px 8px #7f7f7f; */
+    z-index: 1;
+    transition: width .3s, height .3s;
+}
+
+.contact-inner-content {
+    transition: opacity .25s ease 0s;
+}
+
+#contact:hover {
+    width: 350px;
+    height: 320px;
+}
+
+#contact:hover .contact-inner-content {
+    opacity: 1;
+    transition: opacity .25s ease .3s;
+}
+
+#contact:hover svg {
+    transform: translateY(100px);
+    transition: transform .35s ease .3s;
+}
+
+#contact svg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    background: var(--inner-bg);
+    border-top-right-radius: 10px;
+}
+
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -495,8 +547,9 @@ text {
     margin: 5px 0;
     border: none;
     border-radius: 5px;
-    background-color: var(--input-bg);
+    background-color: var(--inner-bg);
     font-size: 16px;
+    color: var(--main-color);
     box-sizing: border-box;
     font-family: inherit;
 }
@@ -670,8 +723,9 @@ text {
     }
 }
 
-.show-mob {
-    display: none;
+.show-mob,
+.flex-mob {
+    display: none !important;
 }
 
 
@@ -715,8 +769,7 @@ text {
     transform: translateY(100px);
 }
 
-.about-contact img,
-#contact {
+.about-contact img {
     opacity: 0;
     transition: transform 1s, opacity 1s;
 }
@@ -762,6 +815,7 @@ text {
     /* text-align: center; */
     margin-top: 10px;
 }
+
 .modal-project h4,
 .modal-project h3,
 .modal-project h2 {
@@ -800,7 +854,8 @@ p,
     font-size: 14pt;
 }
 
-.modal-project p, .modal-project li {
+.modal-project p,
+.modal-project li {
     color: var(--modal-project-p) !important;
     /* margin-left: 13px; */
     font-size: 14pt !important;
@@ -889,6 +944,32 @@ p,
 }
 
 @media (max-width: 641px) {
+    #contact svg {
+        display: none;
+    }
+
+    #contact {
+        position: relative;
+        width: auto;
+        height: auto;
+        background: var(--inner-bg);
+        padding: 0;
+    }
+
+    #contact input,
+    #contact textarea {
+        background: var(--main-bg)
+    }
+
+    #contact:hover {
+        width: auto;
+        height: auto;
+    }
+
+    .expand-contact-false .contact-inner-content {
+        opacity: 1;
+    }
+
     .modal-project {
         margin: 0;
     }
@@ -943,6 +1024,10 @@ p,
 
     .show-mob {
         display: block !important;
+    }
+
+    .flex-mob {
+        display: flex !important;
     }
 
     .container {
